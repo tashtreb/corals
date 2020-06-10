@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html debug="true">
+  <head>
+  <link rel="icon" href="images/coral_favicon.png" sizes="any" type="image/png">
+    <meta charset="utf-8">
+    <title>Coral Reef Photography</title>
+    <link rel="stylesheet" href="../src/jquery.skidder.css">
+    <!-- <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> -->
+    <!-- <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"> -->
+    <link rel="StyleSheet" title="Default" href="format_skidder.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Neuton" rel="stylesheet">
+  </head>
+  <center>
+  <h1>Coral Reef Photography</h1><!--heading h1-h6, h1 being largest heading size-->
+<a href="index2.html">HOME</a>
+<a href="coral1.html">BLUE CORAL</a>
+<a href="coral5.html">PINK CORAL</a>
+<a href="coral2.html">COLORFUL CORAL</a>
+<a href="coral3.html">ORANGE FISH</a>
+<a href="coral4.html">YELLOW FISH</a>
+<br/><br/>
+</center>
+  <body>
+
+    <div class="slideshow" style="height: 0; overflow: hidden">
+
+      <div class="slide"><img src="images/coral1.jpg"></div>
+      <div class="slide"><img src="images/coral5.jpg"></div>
+      <div class="slide"><img src="images/coral2.jpg"></div>
+      <div class="slide"><img src="images/coral3.jpg"></div>
+      <div class="slide"><img src="images/coral4.jpg"></div>
+      
+
+    </div>
+
+
+
+  </body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="./lib/imagesloaded.js"></script>
+  <script src="./lib/smartresize.js"></script>
+  <script src="../src/jquery.skidder.js"></script>
+
+  <script>
+    $('.slideshow').each( function() {
+      var $slideshow = $(this);
+      $slideshow.imagesLoaded( function() {
+        $slideshow.skidder({
+          slideClass    : '.slide',
+          animationType : 'css',
+          scaleSlides   : true,
+          maxWidth : 1300,
+          maxHeight: 500,
+          paging        : true,
+          autoPaging    : true,
+          pagingWrapper : ".skidder-pager",
+          pagingElement : ".skidder-pager-dot",
+          swiping       : true,
+          leftaligned   : false,
+          cycle         : true,
+          jumpback      : false,
+          speed         : 600,
+          autoplay      : true,
+          autoplayResume: true,
+          interval      : 5000,
+          transition    : "fade",
+          afterSliding  : function() {},
+          afterInit     : function() {}
+        });
+      });
+    });
+
+    // $('.slideshow-nocycle').each( function() {
+    //   var $slideshow = $(this);
+    //   $slideshow.imagesLoaded( function() {
+    //     $slideshow.skidder({
+    //       slideClass    : '.slide',
+    //       scaleSlides   : true,
+    //       maxWidth : 1300,
+    //       maxHeight: 500,
+    //       leftaligned   : true,
+    //       cycle         : false,
+    //       paging        : true,
+    //       swiping       : true,
+    //       jumpback      : false,
+    //       speed         : 400,
+    //       autoplay      : false,
+    //       interval      : 4000,
+    //       afterSliding  : function() {}
+    //     });
+    //   });
+    // });
+
+    $(window).smartresize(function(){
+      $('.slideshow').skidder('resize');
+    });
+
+  </script>
+
+<html>
